@@ -35,6 +35,21 @@ const PILOTS = [
     accent: '#4d8dff',
     accent2: '#36e0d0',
   },
+  {
+    code: 'P-03',
+    name: 'World Cup HQ',
+    client: 'FIFA World Cup 2026',
+    blurb:
+      "A live brand command center for the 2026 World Cup. One hub for all 104 matches, a real-time " +
+      "social-sentiment heatmap, breaking news, market-by-market reactive briefings, and a creative " +
+      "asset repository — wired to Genius Sports data and an on-call Gemini assistant.",
+    tags: ['Brand command', 'Live data', 'Social pulse', 'Gemini'],
+    url: 'https://mfgworldcup.com/',
+    status: 'live',
+    gated: false,
+    accent: '#2fbf6b',
+    accent2: '#f0b429',
+  },
 ];
 
 /* ── render ── */

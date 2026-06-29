@@ -12,6 +12,7 @@ own subdomain. This repo is the hub that catalogs them.
 |---|-------|--------|--------|-----|
 | P-01 | Sunday's Most Wanted | YouTube Sunday Ticket | Live | https://ytst.mfgpilots.com/ |
 | P-02 | Beckett | NBC Sports | Live (gated) | https://nbcu.mfgkessel.com/gate |
+| P-03 | World Cup HQ | FIFA World Cup 2026 | Live | https://mfgworldcup.com/ |
 
 ## Add a new pilot
 
