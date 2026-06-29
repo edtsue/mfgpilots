@@ -50,6 +50,21 @@ const PILOTS = [
     accent: '#2fbf6b',
     accent2: '#f0b429',
   },
+  {
+    code: 'P-04',
+    name: 'Kessel',
+    client: 'Media Futures Group',
+    blurb:
+      "An AI-powered competitive-intelligence dashboard tracking the AI-assistant category — media " +
+      "spend, creative strategy, brand positioning and audience across Gemini, ChatGPT and Claude. " +
+      "Harmonizes CHARM, BAV, Sensor Tower and deep-research intel across India, UK and US markets.",
+    tags: ['Competitive intel', 'Media spend', 'Multi-market', 'Gemini'],
+    url: 'https://mfgkessel.com/',
+    status: 'live',
+    gated: true,
+    accent: '#e0529c',
+    accent2: '#8b5cf6',
+  },
 ];
 
 /* ── render ── */
