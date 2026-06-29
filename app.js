@@ -71,40 +71,42 @@ const PILOTS = [
 const grid = document.getElementById('pilotGrid');
 
 function cardHTML(p) {
-  const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
   const isLive = p.status === 'live';
-  const statusLabel = isLive ? 'Live' : 'In dev';
-  const gateChip = p.gated
-    ? `<span class="card__gate" title="Password-protected preview">🔒 gated</span>`
-    : '';
-  const cta = isLive
-    ? `<span class="card__cta">Fly this pilot <i>→</i></span>`
-    : `<span class="card__cta card__cta--soon">Cleared soon</span>`;
+  const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
+  const status = isLive
+    ? `<span class="card__status">LIVE</span>`
+    : `<span class="card__status card__status--soon">IN DEV</span>`;
+  const gate = p.gated ? `<span class="card__gate">[GATED]</span>` : '';
+  const run = isLive
+    ? `<span class="card__run">RUN <span class="arr">&rarr;</span></span>`
+    : `<span class="card__run card__run--soon">CLEARED SOON</span>`;
 
   const inner = `
-    <div class="card__glow" aria-hidden="true"></div>
-    <div class="card__top">
-      <span class="card__code">${p.code}</span>
-      <span class="card__status card__status--${p.status}">
-        <span class="card__status-dot"></span>${statusLabel}
-      </span>
+    <div class="card__bar">
+      <span class="card__code">[${p.code}]</span>
+      ${status}
     </div>
-    <div class="card__client">${p.client}${gateChip}</div>
-    <h3 class="card__name">${p.name}</h3>
+    <div class="card__client">${p.client}${gate ? ' ' + gate : ''}</div>
+    <h2 class="card__name">${p.name}</h2>
     <p class="card__blurb">${p.blurb}</p>
     <div class="card__tags">${tags}</div>
-    ${cta}
+    ${run}
   `;
 
   if (isLive) {
-    return `<a class="card card--live" href="${p.url}" target="_blank" rel="noopener"
-              style="--ac:${p.accent};--ac2:${p.accent2}">${inner}</a>`;
+    return `<a class="card card--live" href="${p.url}" target="_blank" rel="noopener" style="--ac:${p.accent}">${inner}</a>`;
   }
-  return `<div class="card card--soon" style="--ac:${p.accent || '#5c6678'};--ac2:${p.accent2 || '#5c6678'}">${inner}</div>`;
+  return `<div class="card card--soon">${inner}</div>`;
 }
 
 function render() {
   grid.innerHTML = PILOTS.map(cardHTML).join('');
+  const live = PILOTS.filter((p) => p.status === 'live').length;
+  const meta = document.getElementById('meta');
+  if (meta) {
+    meta.textContent =
+      `${String(PILOTS.length).padStart(2, '0')} PILOTS / ${String(live).padStart(2, '0')} LIVE`;
+  }
 }
 
 render();
