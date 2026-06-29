@@ -39,8 +39,8 @@ The card, the hover styling, and the "pilots in the air" counter all update auto
 
 ## Stack
 
-Vanilla HTML / CSS / JS. Fonts: Anton / Oswald / Archivo. No dependencies, no framework, no build.
-Deploys as a static site on Vercel.
+Vanilla HTML / CSS / JS. Brutalist-mono theme (Space Mono, hard borders, ALL CAPS, per-card
+accent invert on hover). No dependencies, no framework, no build. Deploys as a static site on Vercel.
 
 ## Files
 
