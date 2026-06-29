@@ -90,28 +90,6 @@ function cardHTML(p) {
 
 function render() {
   grid.innerHTML = PILOTS.map(cardHTML).join('');
-
-  // a couple of "runway" placeholders so the library reads as a growing collection
-  for (let i = 0; i < 2; i++) {
-    const slot = document.createElement('div');
-    slot.className = 'slot';
-    slot.innerHTML = `<span class="slot__plus">+</span><span class="slot__txt">Next pilot on the runway</span>`;
-    grid.appendChild(slot);
-  }
-}
-
-/* ── live count, animated ── */
-function animateCount() {
-  const liveN = PILOTS.filter((p) => p.status === 'live').length;
-  const el = document.getElementById('liveCount');
-  let n = 0;
-  const tick = () => {
-    n++;
-    el.textContent = n;
-    if (n < liveN) setTimeout(tick, 220);
-  };
-  tick();
 }
 
 render();
-animateCount();
