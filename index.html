@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MFG Pilots — a library of media concepts in flight</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+  <meta name="description" content="MFG Pilots is the Media Futures Group lab — a growing library of interactive, AI-powered concept prototypes for the future of media and advertising. Each pilot is a working pitch you can fly." />
+  <meta property="og:title" content="MFG Pilots — a library of media concepts in flight" />
+  <meta property="og:description" content="A growing library of interactive, AI-powered media & advertising concept prototypes from Media Futures Group." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="radar" aria-hidden="true"></div>
+
+  <!-- ░░ NAV ░░ -->
+  <header class="nav">
+    <a class="nav__brand" href="#top">
+      <span class="nav__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="22" height="22"><path d="M7 16.4 24.5 8 18.7 24.2l-3.5-5.2-2.1 3.1-.3-4.2L7 16.4z" fill="url(#ng)"/><defs><linearGradient id="ng" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4d8dff"/><stop offset="1" stop-color="#36e0d0"/></linearGradient></defs></svg>
+      </span>
+      <span class="nav__wordmark">MFG&nbsp;Pilots</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#library">The library</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <!-- ░░ HERO ░░ -->
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <div class="hero__kicker">Media Futures Group · a lab of working concepts</div>
+      <h1 class="hero__title">Ideas,<br /><span class="hero__title-flight">cleared for takeoff.</span></h1>
+      <p class="hero__lede">
+        <strong>MFG&nbsp;Pilots</strong> is our library of media &amp; advertising concepts built as
+        living prototypes — not slides. Every pilot is an interactive pitch artifact you can actually
+        fly: real signals in, AI-rendered creative out. This is where the future of the format gets
+        a test flight before anyone commits.
+      </p>
+      <div class="hero__cta">
+        <a href="#library" class="btn btn--solid">Browse the library →</a>
+        <a href="#about" class="btn btn--ghost">What is a pilot?</a>
+      </div>
+      <div class="status" id="statusChip">
+        <span class="status__dot"></span>
+        <span class="status__label"><strong id="liveCount">0</strong> pilots in the air</span>
+        <span class="status__sep">·</span>
+        <span class="status__msg">more cleared for takeoff</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ THE LIBRARY ░░ -->
+  <section class="library" id="library">
+    <div class="section-head">
+      <span class="section-head__num">01</span>
+      <h2>The library</h2>
+      <p>Each card is a self-contained prototype living on its own subdomain. Built for the pitch,
+        wired to real data, rendered live by AI. Click one to fly it.</p>
+    </div>
+    <div class="grid" id="pilotGrid"></div>
+  </section>
+
+  <!-- ░░ ABOUT ░░ -->
+  <section class="about" id="about">
+    <div class="section-head">
+      <span class="section-head__num">02</span>
+      <h2>What is a pilot?</h2>
+    </div>
+    <div class="about__grid">
+      <article class="about__card">
+        <span class="about__ic">✦</span>
+        <h3>A working artifact, not a deck</h3>
+        <p>Every pilot is a real, interactive site. The audience doesn't watch a mock — they operate
+          the concept, change the inputs, and watch the creative respond.</p>
+      </article>
+      <article class="about__card">
+        <span class="about__ic">◎</span>
+        <h3>Real signals, live AI</h3>
+        <p>Context in — geography, moment, audience, live moments — and AI composites the asset on the
+          spot. The pitch proves the pipeline, not just the picture.</p>
+      </article>
+      <article class="about__card">
+        <span class="about__ic">▲</span>
+        <h3>Built to grow</h3>
+        <p>The library is a runway. New concepts get their own subdomain and land here as a new card —
+          one idea, one test flight, at a time.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p><strong>MFG&nbsp;Pilots</strong> — a Media Futures Group lab. Concepts shown are interactive pitch
+      artifacts; logos, brands and data are illustrative unless a pilot states otherwise.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
