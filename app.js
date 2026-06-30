@@ -7,7 +7,7 @@
 const PILOTS = [
   {
     code: 'P-01',
-    name: "Sunday's Most Wanted",
+    name: "Sunday M.I.A.",
     client: 'YouTube Sunday Ticket',
     blurb:
       "A contextual CTV engine for YouTube Sunday Ticket. Three live signals — geography, " +
@@ -64,6 +64,22 @@ const PILOTS = [
     gated: true,
     accent: '#e0529c',
     accent2: '#8b5cf6',
+  },
+  {
+    code: 'P-05',
+    name: 'Multiview Smart Trigger',
+    client: 'YouTube TV × FIFA World Cup 2026',
+    blurb:
+      "A real-time CTV ad engine for YouTube TV during the 2026 World Cup. A proximity engine reads the " +
+      "Genius Sports feed and detects when major events — goals, red cards, injuries — strike across " +
+      "concurrent group-stage matches at once, then fires creative urging fans to switch to multiview " +
+      "and catch every game.",
+    tags: ['Contextual CTV', 'YouTube TV', 'Live data', 'Multiview'],
+    url: 'https://yttv-fwc.mfgpilots.com/',
+    status: 'live',
+    gated: true,
+    accent: '#ff0033',
+    accent2: '#ffffff',
   },
 ];
 
