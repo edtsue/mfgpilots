@@ -1,8 +1,9 @@
 /* ════════════════ MFG PILOTS — the library ════════════════
    Add a new pilot = add one object to PILOTS below.
-   status: 'live'   → clickable card, counts toward "in the air"
-           'soon'   → dimmed placeholder, not clickable
-   gated:  true     → shows a small "password" hint on the card
+   status: 'live'     → clickable card, badge LIVE, counts toward "in the air"
+           'migrated' → clickable card, badge MIGRATED (moved/rolled up), not counted as live
+           'soon'     → dimmed placeholder, badge IN DEV, not clickable
+   gated:  true       → shows a small "password" hint on the card
 */
 const PILOTS = [
   {
@@ -15,7 +16,7 @@ const PILOTS = [
       "city, every day. Only Sunday Ticket can resolve the blackout.",
     tags: ['Contextual CTV', 'YouTube', 'Gemini', 'Fantasy data'],
     url: 'https://ytst.mfgpilots.com/',
-    status: 'live',
+    status: 'soon',
     gated: false,
     accent: '#ff3b3b',
     accent2: '#e7b53c',
@@ -30,7 +31,7 @@ const PILOTS = [
       "advertising for live sports.",
     tags: ['Live Contextual', 'NBC Sports', 'Gemini', 'CTV'],
     url: 'https://nbcu.mfgkessel.com/gate',
-    status: 'live',
+    status: 'soon',
     gated: true,
     accent: '#4d8dff',
     accent2: '#36e0d0',
@@ -60,7 +61,7 @@ const PILOTS = [
       "Harmonizes CHARM, BAV, Sensor Tower and deep-research intel across India, UK and US markets.",
     tags: ['Competitive intel', 'Media spend', 'Multi-market', 'Gemini'],
     url: 'https://mfgkessel.com/',
-    status: 'live',
+    status: 'migrated',
     gated: true,
     accent: '#e0529c',
     accent2: '#8b5cf6',
@@ -87,14 +88,19 @@ const PILOTS = [
 const grid = document.getElementById('pilotGrid');
 
 function cardHTML(p) {
-  const isLive = p.status === 'live';
+  const isMigrated = p.status === 'migrated';
+  const clickable = p.status === 'live' || isMigrated;
   const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
-  const status = isLive
+  const status = p.status === 'live'
     ? `<span class="card__status">LIVE</span>`
+    : isMigrated
+    ? `<span class="card__status card__status--migrated">MIGRATED</span>`
     : `<span class="card__status card__status--soon">IN DEV</span>`;
   const gate = p.gated ? `<span class="card__gate">[GATED]</span>` : '';
-  const run = isLive
+  const run = p.status === 'live'
     ? `<span class="card__run">RUN <span class="arr">&rarr;</span></span>`
+    : isMigrated
+    ? `<span class="card__run">OPEN <span class="arr">&rarr;</span></span>`
     : `<span class="card__run card__run--soon">CLEARED SOON</span>`;
 
   const inner = `
@@ -109,7 +115,7 @@ function cardHTML(p) {
     ${run}
   `;
 
-  if (isLive) {
+  if (clickable) {
     return `<a class="card card--live" href="${p.url}" target="_blank" rel="noopener" style="--ac:${p.accent}">${inner}</a>`;
   }
   return `<div class="card card--soon">${inner}</div>`;
