@@ -1,8 +1,9 @@
 /* ════════════════ MFG PILOTS — the library ════════════════
    Add a new pilot = add one object to PILOTS below.
-   status: 'live'     → clickable card, badge LIVE, counts toward "in the air"
-           'migrated' → clickable card, badge MIGRATED (moved/rolled up), not counted as live
-           'soon'     → dimmed placeholder, badge IN DEV, not clickable
+   All cards are clickable and full-color; status only changes the badge + button label.
+   status: 'live'     → badge LIVE, counts toward "in the air"
+           'migrated' → badge MIGRATED (moved/rolled up), not counted as live
+           'soon'     → badge IN DEV, not counted as live
    gated:  true       → shows a small "password" hint on the card
 */
 const PILOTS = [
@@ -89,7 +90,6 @@ const grid = document.getElementById('pilotGrid');
 
 function cardHTML(p) {
   const isMigrated = p.status === 'migrated';
-  const clickable = p.status === 'live' || isMigrated;
   const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
   const status = p.status === 'live'
     ? `<span class="card__status">LIVE</span>`
@@ -99,9 +99,7 @@ function cardHTML(p) {
   const gate = p.gated ? `<span class="card__gate">[GATED]</span>` : '';
   const run = p.status === 'live'
     ? `<span class="card__run">RUN <span class="arr">&rarr;</span></span>`
-    : isMigrated
-    ? `<span class="card__run">OPEN <span class="arr">&rarr;</span></span>`
-    : `<span class="card__run card__run--soon">CLEARED SOON</span>`;
+    : `<span class="card__run">OPEN <span class="arr">&rarr;</span></span>`;
 
   const inner = `
     <div class="card__bar">
@@ -115,10 +113,7 @@ function cardHTML(p) {
     ${run}
   `;
 
-  if (clickable) {
-    return `<a class="card card--live" href="${p.url}" target="_blank" rel="noopener" style="--ac:${p.accent}">${inner}</a>`;
-  }
-  return `<div class="card card--soon">${inner}</div>`;
+  return `<a class="card card--live" href="${p.url}" target="_blank" rel="noopener" style="--ac:${p.accent}">${inner}</a>`;
 }
 
 function render() {
