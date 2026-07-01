@@ -78,6 +78,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--ink); color: var(--bg); padding: 2px 8px;
 }
 .card__status--soon { background: none; color: var(--dim); border: var(--bw) solid var(--dim); padding: 0 6px; }
+.card__status--migrated { background: none; color: var(--ink); border: var(--bw) solid var(--ink); padding: 0 6px; }
 
 .card__client {
   margin-top: 16px; font-size: 12px; font-weight: 700; letter-spacing: .08em;
