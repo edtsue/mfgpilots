@@ -1,91 +1,141 @@
-/* ════════════════ MFG/PILOTS — BRUTALIST MONO ════════════════ */
+/* ════════════════ MFG/PILOTS — SKUNK WORKS BLUEPRINT ════════════════
+   Deep drafting-blue, cyan hairlines, graph-paper grid, drawing title-block.
+   Classified-prototype index. Handling caveats apply. */
 :root {
-  --bg: #f3f2ec;        /* warm paper white */
-  --ink: #0b0b0b;       /* near-black */
-  --dim: #5a5a52;       /* muted */
-  --line: #0b0b0b;      /* borders are ink */
-  --bw: 2px;            /* hard border weight */
+  --bg: #08192c;              /* deep drafting navy */
+  --panel: rgba(11, 33, 56, .55); /* card fill — grid shows faintly through */
+  --ink: #dceafc;            /* pale blue-white */
+  --dim: #7098c2;            /* muted blue */
+  --line: #38658f;           /* hairline */
+  --cyan: #57c7ff;           /* bright register/accent cyan */
+  --grid-major: rgba(87, 199, 255, .11);
+  --grid-minor: rgba(87, 199, 255, .045);
+  --bw: 1px;                 /* blueprint hairlines are thin */
   --maxw: 1160px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 [hidden] { display: none !important; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
-  background: var(--bg); color: var(--ink);
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+  background-size: 130px 130px, 130px 130px, 26px 26px, 26px 26px;
+  background-position: -1px -1px;
+  color: var(--ink);
   font-family: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
   line-height: 1.5; -webkit-font-smoothing: antialiased;
   font-variant-ligatures: none;
 }
 a { color: inherit; text-decoration: none; }
 
-/* ── WRAP ── */
-.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px 64px; }
+/* ── CLASSIFICATION BANNERS (full-bleed) ── */
+.classbar {
+  text-align: center; color: var(--cyan);
+  font-size: 11px; font-weight: 700; letter-spacing: .34em; text-transform: uppercase;
+  padding: 9px 14px; background: rgba(87, 199, 255, .05);
+  border-top: var(--bw) solid var(--line);
+  border-bottom: var(--bw) solid var(--line);
+}
 
-/* ── HEADER ── */
-.head { padding-top: 40px; }
-.head__rule { height: 0; border-top: var(--bw) solid var(--ink); margin: 18px 0; }
+/* ── WRAP ── */
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 34px 22px 56px; }
+
+/* ── HEADER / DRAWING TITLE BLOCK ── */
 .head__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .head__title {
   font-size: clamp(34px, 8vw, 78px); font-weight: 700; letter-spacing: -.02em;
-  text-transform: uppercase; line-height: .95;
+  text-transform: uppercase; line-height: .95; color: var(--ink);
 }
-.head__mark { color: var(--ink); display: inline-flex; flex: none; }
+.head__mark { color: var(--cyan); display: inline-flex; flex: none; }
 .head__tag {
   margin-top: 14px; font-size: clamp(12px, 1.5vw, 14px); font-weight: 700;
-  text-transform: uppercase; letter-spacing: .02em; color: var(--ink);
+  text-transform: uppercase; letter-spacing: .02em; color: var(--cyan);
 }
-.head__meta {
-  margin-top: 14px; display: flex; justify-content: space-between; gap: 12px;
-  font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim);
-}
+.head__rule { height: 0; border-top: var(--bw) solid var(--line); margin: 18px 0; }
 
-/* ── GRID ── */
+/* title block — labelled cells like an engineering drawing footer */
+.titleblock {
+  margin-top: 18px; display: flex; flex-wrap: wrap;
+  border: var(--bw) solid var(--line); border-right: 0; border-bottom: 0;
+}
+.tb__cell {
+  flex: 1 1 auto; min-width: 150px; padding: 8px 12px;
+  border-right: var(--bw) solid var(--line); border-bottom: var(--bw) solid var(--line);
+  display: flex; flex-direction: column; gap: 3px;
+}
+.tb__k { font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.tb__v { font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--ink); }
+
+/* ── GRID (with corner register marks) ── */
 .grid {
+  position: relative; margin-top: 26px;
   display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   gap: 0;
-  border-left: var(--bw) solid var(--ink);
-  border-top: var(--bw) solid var(--ink);
+  border-left: var(--bw) solid var(--line);
+  border-top: var(--bw) solid var(--line);
 }
-/* shared edges: each card draws its right + bottom border, so the grid reads as one ruled table */
-.card,
-.card--soon {
-  border-right: var(--bw) solid var(--ink);
-  border-bottom: var(--bw) solid var(--ink);
+.grid::before, .grid::after {
+  content: "+"; position: absolute; color: var(--cyan);
+  font-size: 15px; line-height: 1; font-weight: 700;
+}
+.grid::before { top: -8px; left: -8px; }
+.grid::after { bottom: -8px; right: -8px; }
+.card {
+  border-right: var(--bw) solid var(--line);
+  border-bottom: var(--bw) solid var(--line);
 }
 
 /* ── CARD ── */
 .card {
   position: relative; display: flex; flex-direction: column; min-height: 300px;
-  padding: 18px 18px 16px; background: var(--bg); color: var(--ink);
-  transition: background .08s linear, color .08s linear;
+  padding: 18px 18px 16px; background: var(--panel); color: var(--ink);
+  cursor: pointer;
+  transition: background .1s linear, color .1s linear;
 }
-.card--live { cursor: pointer; }
+/* faint register mark, bottom-left, like a drafting tick */
+.card::after {
+  content: "+"; position: absolute; left: 6px; bottom: 4px;
+  color: var(--line); font-size: 11px; line-height: 1;
+}
 
-/* hover = hard invert into the pilot's accent */
-.card--live:hover { background: var(--ac, var(--ink)); color: #fff; }
+/* hover = fill with the pilot's accent (a highlighted / stamped sheet) */
+.card--live:hover { background: var(--ac, var(--cyan)); color: #fff; }
 .card--live:hover .card__code,
 .card--live:hover .card__client,
 .card--live:hover .card__blurb,
-.card--live:hover .card__run { color: #fff; }
+.card--live:hover .card__run,
+.card--live:hover::after { color: #fff; }
 .card--live:hover .tag { border-color: #fff; color: #fff; }
-.card--live:hover .card__status { background: #fff; color: var(--ac, var(--ink)); }
+.card--live:hover .card__status { background: #fff; color: var(--ac, var(--cyan)); border-color: #fff; }
+.card--live:hover .card__status--soon,
+.card--live:hover .card__status--migrated { background: #fff; color: var(--ac, var(--cyan)); border-color: #fff; }
+.card--live:hover .card__gate { background: #fff; color: var(--ac, var(--cyan)); }
 
 /* top bar: code + status */
 .card__bar { display: flex; align-items: center; justify-content: space-between; }
-.card__code { font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+.card__code { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--cyan); }
 .card__status {
-  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  background: var(--ink); color: var(--bg); padding: 2px 8px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  background: var(--cyan); color: #04121f; padding: 2px 8px; border: var(--bw) solid var(--cyan);
 }
-.card__status--soon { background: none; color: var(--dim); border: var(--bw) solid var(--dim); padding: 0 6px; }
-.card__status--migrated { background: none; color: var(--ink); border: var(--bw) solid var(--ink); padding: 0 6px; }
+.card__status--soon { background: none; color: var(--dim); border: var(--bw) solid var(--dim); }
+.card__status--migrated { background: none; color: var(--cyan); border: var(--bw) solid var(--cyan); }
 
 .card__client {
   margin-top: 16px; font-size: 12px; font-weight: 700; letter-spacing: .08em;
   text-transform: uppercase; color: var(--dim);
   display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap;
 }
-.card__gate { color: var(--dim); }
+/* gated pilots read as a redaction / clearance stamp */
+.card__gate {
+  background: var(--dim); color: var(--bg); padding: 1px 7px;
+  font-size: 10px; letter-spacing: .12em;
+}
 .card__name {
   margin-top: 6px; font-size: clamp(22px, 2.6vw, 28px); font-weight: 700;
   text-transform: uppercase; letter-spacing: -.01em; line-height: 1.02;
@@ -95,26 +145,25 @@ a { color: inherit; text-decoration: none; }
 .card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 14px; }
 .tag {
   font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-  border: var(--bw) solid var(--ink); padding: 2px 7px;
+  border: var(--bw) solid var(--line); color: var(--dim); padding: 2px 7px;
 }
 .card__run {
   font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-flex; align-items: center; gap: 8px; color: var(--cyan);
 }
 .card--live:hover .card__run .arr { transform: translateX(5px); }
 .card__run .arr { transition: transform .12s; }
-.card__run--soon { color: var(--dim); }
-
-/* status 'soon' pilots render dimmed (kept for future cards) */
-.card--soon { opacity: .55; }
 
 /* ── FOOTER ── */
 .foot { margin-top: 0; }
 .foot p {
   font-size: 11px; line-height: 1.6; text-transform: uppercase; letter-spacing: .04em;
-  color: var(--dim); max-width: 760px;
+  color: var(--dim); max-width: 820px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
 @media (max-width: 600px) {
   .grid { grid-template-columns: 1fr; }
 }

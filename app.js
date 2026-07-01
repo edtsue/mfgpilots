@@ -96,7 +96,7 @@ function cardHTML(p) {
     : isMigrated
     ? `<span class="card__status card__status--migrated">MIGRATED</span>`
     : `<span class="card__status card__status--soon">IN DEV</span>`;
-  const gate = p.gated ? `<span class="card__gate">[GATED]</span>` : '';
+  const gate = p.gated ? `<span class="card__gate">CLEARANCE REQ</span>` : '';
   const run = p.status === 'live'
     ? `<span class="card__run">RUN <span class="arr">&rarr;</span></span>`
     : `<span class="card__run">OPEN <span class="arr">&rarr;</span></span>`;
@@ -122,7 +122,7 @@ function render() {
   const meta = document.getElementById('meta');
   if (meta) {
     meta.textContent =
-      `${String(PILOTS.length).padStart(2, '0')} PILOTS / ${String(live).padStart(2, '0')} LIVE`;
+      `${String(PILOTS.length).padStart(2, '0')} · ${String(live).padStart(2, '0')} LIVE`;
   }
 }
 
