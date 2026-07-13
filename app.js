@@ -9,13 +9,14 @@
 const PILOTS = [
   {
     code: 'P-01',
-    name: "Sunday M.I.A.",
-    client: 'YouTube Sunday Ticket',
+    name: "Set Your Sunday",
+    client: 'YouTube Sunday Ticket × Fantasy',
     blurb:
-      "A contextual CTV engine for YouTube Sunday Ticket. Three live signals — geography, " +
-      "day-emotion, and the most-wanted players in your market — render a different ad for every " +
-      "city, every day. Only Sunday Ticket can resolve the blackout.",
-    tags: ['Contextual CTV', 'YouTube', 'Gemini', 'Fantasy data'],
+      "A contextual CTV engine for YouTube Sunday Ticket. Genius Sports data surfaces the Elite Eight — " +
+      "the week's top-projected must-starts — and one ad reskins daily to meet each fantasy manager at that " +
+      "day's decision, from waivers to lineup lock. Sunday Ticket is how they watch all eight play: every " +
+      "game, out-of-market, in Fantasy View.",
+    tags: ['Contextual CTV', 'YouTube Sunday Ticket', 'Fantasy', 'Genius Sports'],
     url: 'https://ytst.mfgpilots.com/',
     status: 'soon',
     gated: false,
