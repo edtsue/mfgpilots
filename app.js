@@ -9,6 +9,21 @@
 const PILOTS = [
   {
     code: 'P-01',
+    name: 'As Seen In Scenes',
+    client: 'Googlebook × Rembrand',
+    blurb:
+      "AI-native product placement for Google's first AI laptop. Rembrand's in-content AI drops the " +
+      "Googlebook into the speed-of-thought scenes of premium shows — fixed, photoreal, identified by the " +
+      "Glowbar — without ever touching production. Own a show, then wrap it with the ad inventory around it.",
+    tags: ['In-content AI', 'Product placement', 'Rembrand', 'Googlebook'],
+    url: 'https://gbseen.mfgpilots.com/',
+    status: 'live',
+    gated: true,
+    accent: '#8b5cf6',
+    accent2: '#22d3ee',
+  },
+  {
+    code: 'P-02',
     name: "Set Your Sunday",
     client: 'YouTube Sunday Ticket × Fantasy',
     blurb:
@@ -24,7 +39,7 @@ const PILOTS = [
     accent2: '#e7b53c',
   },
   {
-    code: 'P-02',
+    code: 'P-03',
     name: 'Beckett',
     client: 'NBC Sports',
     blurb:
@@ -39,7 +54,7 @@ const PILOTS = [
     accent2: '#36e0d0',
   },
   {
-    code: 'P-03',
+    code: 'P-04',
     name: 'World Cup HQ',
     client: 'FIFA World Cup 2026',
     blurb:
@@ -54,7 +69,7 @@ const PILOTS = [
     accent2: '#f0b429',
   },
   {
-    code: 'P-04',
+    code: 'P-05',
     name: 'Kessel',
     client: 'Media Futures Group',
     blurb:
@@ -69,7 +84,7 @@ const PILOTS = [
     accent2: '#8b5cf6',
   },
   {
-    code: 'P-05',
+    code: 'P-06',
     name: 'Multiview Smart Trigger',
     client: 'YouTube TV × FIFA World Cup 2026',
     blurb:
