@@ -5,6 +5,7 @@
            'migrated' → badge MIGRATED (moved/rolled up), not counted as live
            'soon'     → badge IN DEV, not counted as live
    gated:  true       → shows a small "password" hint on the card
+   outdated: true     → shows an "OUTDATED" stamp on the card
 */
 const PILOTS = [
   {
@@ -35,6 +36,7 @@ const PILOTS = [
     url: 'https://ytst.mfgpilots.com/',
     status: 'soon',
     gated: false,
+    outdated: true,
     accent: '#ff3b3b',
     accent2: '#e7b53c',
   },
@@ -99,6 +101,22 @@ const PILOTS = [
     accent: '#ff0033',
     accent2: '#ffffff',
   },
+  {
+    code: 'P-07',
+    name: 'LTP Brief',
+    client: 'Long-Term Planning',
+    blurb:
+      "A collaborative brief-building instrument that walks a team through a structured five-step flow " +
+      "from raw answers to a finished document. An interview mode gathers input, an on-call Gemini " +
+      "assistant refines it, and 'rebuild from answers' regenerates the draft on demand — then exports " +
+      "clean to Google Docs for handoff.",
+    tags: ['Brief builder', 'Guided flow', 'Gemini', 'Google Docs'],
+    url: 'https://ltpbrief.mfgpilots.com/',
+    status: 'live',
+    gated: false,
+    accent: '#38bdf8',
+    accent2: '#a78bfa',
+  },
 ];
 
 /* ── render ── */
@@ -113,6 +131,7 @@ function cardHTML(p) {
     ? `<span class="card__status card__status--migrated">MIGRATED</span>`
     : `<span class="card__status card__status--soon">IN DEV</span>`;
   const gate = p.gated ? `<span class="card__gate">CLEARANCE REQ</span>` : '';
+  const outdated = p.outdated ? `<span class="card__outdated">OUTDATED</span>` : '';
   const run = p.status === 'live'
     ? `<span class="card__run">RUN <span class="arr">&rarr;</span></span>`
     : `<span class="card__run">OPEN <span class="arr">&rarr;</span></span>`;
@@ -120,7 +139,7 @@ function cardHTML(p) {
   const inner = `
     <div class="card__bar">
       <span class="card__code">[${p.code}]</span>
-      ${status}
+      <span class="card__badges">${outdated}${status}</span>
     </div>
     <div class="card__client">${p.client}${gate ? ' ' + gate : ''}</div>
     <h2 class="card__name">${p.name}</h2>

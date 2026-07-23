@@ -125,6 +125,14 @@ a { color: inherit; text-decoration: none; }
 }
 .card__status--soon { background: none; color: var(--dim); border: var(--bw) solid var(--dim); }
 .card__status--migrated { background: none; color: var(--cyan); border: var(--bw) solid var(--cyan); }
+.card__badges { display: inline-flex; align-items: center; gap: 6px; }
+/* outdated = amber "SUPERSEDED / revise" caveat stamp, slightly angled like a rubber stamp */
+.card__outdated {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: #f0a63c; border: var(--bw) solid #f0a63c; background: rgba(240, 166, 60, .1);
+  padding: 2px 8px; transform: rotate(-3deg);
+}
+.card--live:hover .card__outdated { background: #fff; color: #b9791c; border-color: #fff; }
 
 .card__client {
   margin-top: 16px; font-size: 12px; font-weight: 700; letter-spacing: .08em;
