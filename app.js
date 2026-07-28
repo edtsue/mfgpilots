@@ -117,6 +117,22 @@ const PILOTS = [
     accent: '#38bdf8',
     accent2: '#a78bfa',
   },
+  {
+    code: 'P-08',
+    name: 'Agatha',
+    client: 'Gemini × Media Planning',
+    blurb:
+      "Drag creative onto a live media plan and see what it actually covers. Agatha reads each asset — " +
+      "keyframes and audio for a film, the text of a script — then scores it against every line item for " +
+      "thematic and audience fit. The plan lights green where the work belongs and red where it does not, " +
+      "and every gap comes back with a written brief for what would fill it.",
+    tags: ['Creative × media fit', 'Gemini', 'Coverage matrix', 'Gap briefs'],
+    url: 'https://agatha.mfgpilots.com/',
+    status: 'live',
+    gated: true,
+    accent: '#34a853',
+    accent2: '#f9ab00',
+  },
 ];
 
 /* ── render ── */
