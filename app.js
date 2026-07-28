@@ -133,6 +133,22 @@ const PILOTS = [
     accent: '#34a853',
     accent2: '#f9ab00',
   },
+  {
+    code: 'P-09',
+    name: 'Gwen',
+    client: 'Gemini × Audience Insight',
+    blurb:
+      "Text a synthetic respondent for her point of view. Gwen answers as women 18–34 and 18–49 on how " +
+      "they watch, buy and scroll — and every number she says traces to a row in the GWI panel, checked " +
+      "before you see it, so she tells you when she doesn't know. Tap her reply for the evidence, or " +
+      "switch age to re-ask the same question of the other cohort.",
+    tags: ['Synthetic audience', 'Gemini', 'GWI panel', 'Grounded answers'],
+    url: 'https://gwen.mfgpilots.com/',
+    status: 'live',
+    gated: true,
+    accent: '#c0567a',
+    accent2: '#6d7cc4',
+  },
 ];
 
 /* ── render ── */
