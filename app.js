@@ -2,6 +2,7 @@
    Add a new pilot = add one object to PILOTS below.
    All cards are clickable and full-color; status only changes the badge + button label.
    status: 'live'     → badge LIVE, counts toward "in the air"
+           'complete' → badge COMPLETE (built & delivered), not counted as live
            'migrated' → badge MIGRATED (moved/rolled up), not counted as live
            'soon'     → badge IN DEV, not counted as live
    gated:  true       → shows a small "password" hint on the card
@@ -65,7 +66,7 @@ const PILOTS = [
       "asset repository — wired to Genius Sports data and an on-call Gemini assistant.",
     tags: ['Brand command', 'Live data', 'Social pulse', 'Gemini'],
     url: 'https://mfgworldcup.com/',
-    status: 'live',
+    status: 'complete',
     gated: false,
     accent: '#2fbf6b',
     accent2: '#f0b429',
@@ -96,7 +97,7 @@ const PILOTS = [
       "and catch every game.",
     tags: ['Contextual CTV', 'YouTube TV', 'Live data', 'Multiview'],
     url: 'https://yttv-fwc.mfgpilots.com/',
-    status: 'live',
+    status: 'complete',
     gated: true,
     accent: '#ff0033',
     accent2: '#ffffff',
@@ -149,6 +150,22 @@ const PILOTS = [
     accent: '#c0567a',
     accent2: '#6d7cc4',
   },
+  {
+    code: 'P-10',
+    name: 'Miranda B2B',
+    client: 'Google B2B Partnerships',
+    blurb:
+      "A paid-media strategy sandbox for the Google B2B partner portfolio. A spotlight carousel, a " +
+      "filterable opportunity inventory, a flight calendar, media-partner profiles and audience research " +
+      "sit in one place — and an admin panel edits every one of them in place, so the plan stays current " +
+      "without a rebuild.",
+    tags: ['Paid media', 'Google B2B', 'Partner inventory', 'Audience research'],
+    url: 'https://mirandab2b.mfgpilots.com/',
+    status: 'live',
+    gated: true,
+    accent: '#4285f4',
+    accent2: '#fbbc04',
+  },
 ];
 
 /* ── render ── */
@@ -159,6 +176,8 @@ function cardHTML(p) {
   const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
   const status = p.status === 'live'
     ? `<span class="card__status">LIVE</span>`
+    : p.status === 'complete'
+    ? `<span class="card__status card__status--complete">COMPLETE</span>`
     : isMigrated
     ? `<span class="card__status card__status--migrated">MIGRATED</span>`
     : `<span class="card__status card__status--soon">IN DEV</span>`;

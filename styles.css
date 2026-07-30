@@ -113,7 +113,8 @@ a { color: inherit; text-decoration: none; }
 .card--live:hover .tag { border-color: #fff; color: #fff; }
 .card--live:hover .card__status { background: #fff; color: var(--ac, var(--cyan)); border-color: #fff; }
 .card--live:hover .card__status--soon,
-.card--live:hover .card__status--migrated { background: #fff; color: var(--ac, var(--cyan)); border-color: #fff; }
+.card--live:hover .card__status--migrated,
+.card--live:hover .card__status--complete { background: #fff; color: var(--ac, var(--cyan)); border-color: #fff; }
 .card--live:hover .card__gate { background: #fff; color: var(--ac, var(--cyan)); }
 
 /* top bar: code + status */
@@ -125,6 +126,7 @@ a { color: inherit; text-decoration: none; }
 }
 .card__status--soon { background: none; color: var(--dim); border: var(--bw) solid var(--dim); }
 .card__status--migrated { background: none; color: var(--cyan); border: var(--bw) solid var(--cyan); }
+.card__status--complete { background: none; color: var(--cyan); border: var(--bw) solid var(--cyan); }
 .card__badges { display: inline-flex; align-items: center; gap: 6px; }
 /* outdated = amber "SUPERSEDED / revise" caveat stamp, slightly angled like a rubber stamp */
 .card__outdated {
