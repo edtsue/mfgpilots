@@ -166,6 +166,24 @@ const PILOTS = [
     accent: '#4285f4',
     accent2: '#fbbc04',
   },
+  {
+    code: 'P-11',
+    name: 'MFG Long Term Planning',
+    client: 'Long-Term Planning',
+    blurb:
+      "The map the other planning pilots plug into. Four steps and eighteen subtasks, each declaring what " +
+      "it hands to the next, so the process can be read forwards from a brief or backwards from a " +
+      "deliverable. Give it a kickoff and a present date and it fits the work between them and says where " +
+      "the schedule is already short. Gemini reads the best-practice note behind each subtask and asks the " +
+      "questions that expose a decision nobody has made — then hands back a starting file for the " +
+      "deliverable. LTP Brief, Gwen and Agatha are three of its modules.",
+    tags: ['Process map', 'Dependency graph', 'Scheduling', 'Gemini'],
+    url: 'https://ltpos.mfgpilots.com/',
+    status: 'live',
+    gated: true,
+    accent: '#4285f4',
+    accent2: '#34a853',
+  },
 ];
 
 /* ── render ── */
