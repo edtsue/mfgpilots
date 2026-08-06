@@ -184,6 +184,25 @@ const PILOTS = [
     accent: '#4285f4',
     accent2: '#34a853',
   },
+  {
+    code: 'P-12',
+    name: 'LTP Strategy',
+    client: 'Long-Term Planning',
+    blurb:
+      "Step two of the planning process, where a brief becomes an argument. Four cuts at the market — " +
+      "category, culture, consumer, competition — wired into the single conclusion they exist to produce, " +
+      "then the ideal and current consumer journeys with the gap lit between them, then two or three " +
+      "from/to shifts that every later media bet has to answer to. Each shift has to name what it traces " +
+      "back to, so a principle with nothing behind it cannot hide. Gemini interrogates the board but never " +
+      "writes on it: it asks whether a sentence is an insight or just an observation, and which two cuts " +
+      "contradict each other.",
+    tags: ['4C', 'Consumer journey', 'Shifts', 'Gemini'],
+    url: 'https://ltpstrategy.mfgpilots.com/',
+    status: 'live',
+    gated: false,
+    accent: '#3be0c8',
+    accent2: '#8b7bff',
+  },
 ];
 
 /* ── render ── */
