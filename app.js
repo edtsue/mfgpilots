@@ -186,7 +186,7 @@ const PILOTS = [
   },
   {
     code: 'P-12',
-    name: 'LTP Strategy',
+    name: 'LTP Strategy Discovery',
     client: 'Long-Term Planning',
     blurb:
       "Step two of the planning process, where a brief becomes an argument. Four cuts at the market — " +
