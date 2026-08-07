@@ -199,7 +199,7 @@ const PILOTS = [
     tags: ['4C', 'Consumer journey', 'Shifts', 'Gemini'],
     url: 'https://ltpstrategy.mfgpilots.com/',
     status: 'live',
-    gated: false,
+    gated: true,
     accent: '#3be0c8',
     accent2: '#8b7bff',
   },
