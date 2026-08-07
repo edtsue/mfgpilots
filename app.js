@@ -203,6 +203,23 @@ const PILOTS = [
     accent: '#3be0c8',
     accent2: '#8b7bff',
   },
+  {
+    code: 'P-13',
+    name: 'LTP Media Planning',
+    client: 'Long-Term Planning',
+    blurb:
+      "Step three, where the argument becomes a plan someone can buy and run. Outcome based planning " +
+      "sets the model — the outcomes, the channels that move them, the assumed rates — and everything " +
+      "downstream is costed against it: annual scenarios pressure-tested at each budget level, then a " +
+      "campaign strategy per audience resolved down to delivery, splits, channel allocation and " +
+      "flighting. The order is a dependency, not a preference.",
+    tags: ['OBP', 'Scenario planning', 'Budget splits', 'Flighting'],
+    url: 'https://ltpmediaplanning.mfgpilots.com/',
+    status: 'live',
+    gated: false,
+    accent: '#34a853',
+    accent2: '#4285f4',
+  },
 ];
 
 /* ── render ── */
